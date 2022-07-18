@@ -391,6 +391,24 @@ cc_library(
     ],
 )
 
+cc_binary(
+    name = "tmp_main",
+    srcs = [
+        "tmp_main.cc",
+    ],
+    deps = [
+        ":model_builder",
+        ":stderr_reporter",
+        ":minimal_logging",
+        ":macros",
+        ":cc_api_stable",
+        "//tensorflow/lite/schema:schema_fbs",
+        "//tensorflow/lite/schema:schema_utils",
+        "@flatbuffers",
+    ],
+)
+
+
 # The library that implements the full C++ API.
 # See also 'framework' below, which is the corresponding public target.
 # DEPRECATED: use 'framework_stable' or 'framework' instead.
